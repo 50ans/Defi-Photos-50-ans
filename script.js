@@ -891,6 +891,8 @@ y:0.6
 
 async function refreshGallery(){
 
+console.log("🔄 refreshGallery appelée", new Date());
+
 
 
 const grid =
