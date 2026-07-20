@@ -1191,12 +1191,6 @@ document
    INITIALISATION
 ========================== */
 
-// Actualisation automatique de la galerie toutes les 5 secondes
-
-
-
-refreshGallery()
-
  
 
 
