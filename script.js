@@ -14,17 +14,19 @@ const pages = document.querySelectorAll(".page");
 
 let currentChallenge = {
 
-    title: "Le radeau de la Méduse",
+    title: null,
 
-    description:
-    "Reproduisez une œuvre célèbre avec les invités.",
+    description: null,
 
-    id: 1
+    id: null
 
 };
 
 
 let selectedFile = null;
+
+
+
 
 
 
@@ -40,7 +42,9 @@ function showPage(id){
 
     pages.forEach(page=>{
 
+
         page.classList.remove("active");
+
 
     });
 
@@ -51,11 +55,15 @@ function showPage(id){
 
 
 
-    if(target)
-    target.classList.add("active");
+    if(target){
+
+        target.classList.add("active");
+
+    }
 
 
 }
+
 
 
 
@@ -80,17 +88,30 @@ document
 
 
 
+
+
+
+/* ==========================
+   ACCUEIL → DEFIS
+========================== */
+
+
 const start =
 document.getElementById("start");
 
 
+
 if(start){
 
-start.onclick=()=>{
+
+start.onclick = ()=>{
+
 
     showPage("challenge");
 
+
 };
+
 
 }
 
@@ -99,12 +120,19 @@ start.onclick=()=>{
 
 
 
+
+
+/* ==========================
+   RETOUR
+========================== */
+
+
 document
 .querySelectorAll(".back")
-.forEach(btn=>{
+.forEach(button=>{
 
 
-    btn.onclick=()=>{
+    button.onclick = ()=>{
 
 
         showPage("home");
@@ -119,37 +147,163 @@ document
 
 
 
-const photoButton =
-document.getElementById("photo");
 
 
-if(photoButton){
 
 
-photoButton.onclick=()=>{
+/* ==========================
+   CHOIX D'UN DEFI
+========================== */
+
+
+document
+.querySelectorAll(".choose-photo")
+.forEach(button=>{
+
+
+button.addEventListener("click",(event)=>{
+
+
+
+    event.stopPropagation();
+
+
+
+    const card =
+    button.closest(".challenge-card");
+
+
+
+    if(!card)
+    return;
+
+
+
+
+
+    currentChallenge = {
+
+
+        id:
+        card.dataset.id || "",
+
+
+        title:
+        card.dataset.title,
+
+
+        description:
+        card.dataset.description
+
+
+
+    };
+
+
+
+
+
+
+    const selected =
+    document.getElementById("selectedChallenge");
+
+
+
+    if(selected){
+
+
+        selected.innerHTML = `
+
+        🎯 Défi choisi :
+        <strong>${currentChallenge.title}</strong>
+
+        `;
+
+
+    }
+
+
+
+
 
 
     showPage("upload");
 
 
-};
 
-
-}
-
+});
 
 
 
+});
+
+
+
+
+
+
+
+
+
+/* ==========================
+   CLIQUER SUR UNE CARTE
+========================== */
+
+
+document
+.querySelectorAll(".challenge-card")
+.forEach(card=>{
+
+
+card.addEventListener("click",()=>{
+
+
+
+    document
+    .querySelectorAll(".challenge-card")
+    .forEach(c=>{
+
+
+        c.classList.remove("selected");
+
+
+    });
+
+
+
+
+    card.classList.add("selected");
+
+
+
+});
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* ==========================
+   BOUTON CONTINUER
+========================== */
 
 
 const again =
 document.getElementById("again");
 
 
+
 if(again){
 
 
-again.onclick=()=>{
+again.onclick = ()=>{
 
 
     showPage("challenge");
@@ -166,126 +320,40 @@ again.onclick=()=>{
 
 
 
-/* ==========================
-   CHOIX DES DEFIS
-========================== */
-
-
-document
-.querySelectorAll(".challenge-card")
-.forEach(card=>{
-
-
-    card.addEventListener("click",()=>{
-
-
-        document
-        .querySelectorAll(".challenge-card")
-        .forEach(c=>{
-
-            c.classList.remove("selected");
-
-        });
-
-
-
-        card.classList.add("selected");
-
-
-
-        currentChallenge = {
-
-
-            id:
-            card.dataset.id,
-
-
-            title:
-            card.dataset.title,
-
-
-            description:
-            card.dataset.description
-
-
-        };
-
-
-
-
-
-        const title =
-        document.getElementById("challengeTitle");
-
-
-        const text =
-        document.getElementById("challengeText");
-
-
-
-        if(title)
-        title.textContent =
-        currentChallenge.title;
-
-
-
-        if(text)
-        text.textContent =
-        currentChallenge.description;
-
-
-
-    });
-
-
-});
-
-
-
-
-
-
 
 
 /* ==========================
-   QR CODE / DEFI
+   QR CODE DEFI
 ========================== */
 
 
 function loadChallenge(){
 
 
-    const params =
-    new URLSearchParams(
-        window.location.search
-    );
+
+const params =
+new URLSearchParams(
+window.location.search
+);
 
 
 
-    const defi =
-    params.get("defi");
+const defi =
+params.get("defi");
 
 
 
-    if(defi){
-
-
-        currentChallenge.title =
-        decodeURIComponent(defi);
+if(defi){
 
 
 
-        const title =
-        document.getElementById("challengeTitle");
+currentChallenge.title =
+decodeURIComponent(defi);
 
 
 
-        if(title)
-        title.textContent =
-        currentChallenge.title;
+}
 
-
-    }
 
 
 }
@@ -301,10 +369,10 @@ loadChallenge();
 
 
 
+
 /* ==========================
    PHOTO PREVIEW
 ========================== */
-
 
 
 const input =
@@ -327,73 +395,69 @@ document.getElementById("empty");
 if(input){
 
 
-input.addEventListener(
-"change",
-()=>{
+input.addEventListener("change",()=>{
 
 
-    const file =
-    input.files[0];
-
-
-    if(!file)
-    return;
+const file =
+input.files[0];
 
 
 
-    selectedFile=file;
+if(!file)
+return;
 
 
 
-    const reader =
-    new FileReader();
+selectedFile=file;
 
 
 
-    reader.onload=function(e){
+
+
+const reader =
+new FileReader();
 
 
 
-        preview.src =
-        e.target.result;
+
+
+reader.onload=(e)=>{
 
 
 
-        preview.style.display =
-        "block";
+preview.src =
+e.target.result;
 
 
 
-        if(empty)
-        empty.style.display =
-        "none";
-
-
-    };
+preview.style.display =
+"block";
 
 
 
-    reader.readAsDataURL(file);
+if(empty)
+
+empty.style.display =
+"none";
+
+
+
+};
+
+
+
+
+
+reader.readAsDataURL(file);
 
 
 
 });
 
 
-}
-
-
-
-
-
-
-
-
-
-/* ==========================
+}/* ==========================
    COMPRESSION IMAGE
 ========================== */
-
 
 
 async function compressImage(file){
@@ -404,7 +468,6 @@ return new Promise(resolve=>{
 
 const img =
 new Image();
-
 
 
 const canvas =
@@ -444,7 +507,6 @@ max;
 
 
 
-
 canvas.width =
 width;
 
@@ -462,18 +524,13 @@ canvas.getContext("2d");
 
 
 ctx.drawImage(
-
 img,
-
 0,
-
 0,
-
 width,
-
 height
-
 );
+
 
 
 
@@ -485,19 +542,13 @@ canvas.toBlob(blob=>{
 resolve(blob);
 
 
-
 },
-
 "image/jpeg",
-
-0.85
-
-);
+0.85);
 
 
 
 };
-
 
 
 
@@ -508,8 +559,17 @@ URL.createObjectURL(file);
 
 });
 
+}
 
-}/* ==========================
+
+
+
+
+
+
+
+
+/* ==========================
    ENVOI PHOTO
 ========================== */
 
@@ -524,6 +584,7 @@ if(sendButton){
 
 sendButton.onclick =
 async()=>{
+
 
 
 if(!selectedFile){
@@ -541,8 +602,25 @@ return;
 
 
 
+if(!currentChallenge.title){
+
+
+alert(
+"Choisis d'abord un défi 🎯"
+);
+
+
+return;
+
+
+}
+
+
+
 sendButton.textContent =
 "Envoi... 🚀";
+
+
 
 
 
@@ -580,8 +658,6 @@ await compressImage(selectedFile);
 
 
 
-// UPLOAD STORAGE
-
 
 const upload =
 
@@ -609,6 +685,7 @@ contentType:"image/jpeg"
 
 
 
+
 if(upload.error)
 
 throw upload.error;
@@ -618,7 +695,6 @@ throw upload.error;
 
 
 
-// URL PUBLIQUE
 
 
 const publicUrl =
@@ -641,7 +717,19 @@ window.supabaseClient
 
 
 
-// INSERT DATABASE
+const author =
+
+document.getElementById("name")?.value
+
+||
+
+"Anonyme";
+
+
+
+
+
+
 
 
 const insert =
@@ -652,43 +740,29 @@ await window.supabaseClient
 
 .insert({
 
-
-
 url:
-
 publicUrl,
 
 
-
 filename:
-
 filename,
-
 
 
 storage_path:
-
 filename,
 
 
-
 challenge:
-
 currentChallenge.title,
 
 
-
 author:
-
-document.getElementById("name")?.value
-
-||
-
-"Anonyme"
+author
 
 
 
 });
+
 
 
 
@@ -711,17 +785,19 @@ launchConfetti();
 
 
 
-
 showPage("success");
+
+
+
+
+await refreshGallery();
+
+
 
 
 
 sendButton.textContent =
 "Envoyé 🎉";
-
-
-
-await refreshGallery();
 
 
 
@@ -733,6 +809,7 @@ catch(error){
 
 
 console.error(error);
+
 
 
 alert(
@@ -772,6 +849,7 @@ function launchConfetti(){
 
 
 if(typeof confetti !== "function")
+
 return;
 
 
@@ -788,18 +866,17 @@ spread:120,
 origin:{
 
 
-y:.6
+y:0.6
 
 
 }
-
 
 
 });
 
 
-}
 
+}
 
 
 
@@ -814,7 +891,6 @@ y:.6
 ========================== */
 
 
-
 async function refreshGallery(){
 
 
@@ -825,7 +901,10 @@ document.getElementById("galleryGrid");
 
 
 if(!grid)
+
 return;
+
+
 
 
 
@@ -837,7 +916,9 @@ data,
 
 error
 
-} =
+}
+
+=
 
 await window.supabaseClient
 
@@ -863,6 +944,7 @@ ascending:false
 
 
 
+
 if(error){
 
 
@@ -879,7 +961,10 @@ return;
 
 
 
+
+
 grid.innerHTML="";
+
 
 
 
@@ -889,7 +974,7 @@ grid.innerHTML="";
 if(!data || data.length===0){
 
 
-grid.innerHTML=`
+grid.innerHTML = `
 
 <div class="empty-gallery">
 
@@ -898,6 +983,7 @@ Aucune photo pour le moment 📸
 </div>
 
 `;
+
 
 return;
 
@@ -934,7 +1020,6 @@ grid.innerHTML += `
 </h3>
 
 
-
 <p>
 
 👤 ${photo.author || "Anonyme"}
@@ -946,8 +1031,8 @@ grid.innerHTML += `
 </div>
 
 
-</div>
 
+</div>
 
 
 `;
@@ -958,10 +1043,7 @@ grid.innerHTML += `
 
 
 
-
-
 }
-
 
 
 
@@ -979,8 +1061,8 @@ grid.innerHTML += `
 if(window.supabaseClient){
 
 
-window.supabaseClient
 
+window.supabaseClient
 
 .channel("photos-live")
 
@@ -1019,7 +1101,9 @@ refreshGallery();
 .subscribe();
 
 
+
 }
+
 
 
 
@@ -1035,9 +1119,7 @@ refreshGallery();
 
 
 document.addEventListener(
-
 "keydown",
-
 (e)=>{
 
 
@@ -1063,11 +1145,14 @@ if(admin)
 admin.style.display="block";
 
 
+
 }
 
 
-
 });
+
+
+
 
 
 
@@ -1081,7 +1166,7 @@ document.getElementById("closeAdmin");
 if(closeAdmin){
 
 
-closeAdmin.onclick=()=>{
+closeAdmin.onclick = ()=>{
 
 
 document
@@ -1110,34 +1195,7 @@ document
 
 
 
-const title =
-document.getElementById("challengeTitle");
-
-
-
-const text =
-document.getElementById("challengeText");
-
-
-
-if(title)
-
-title.textContent =
-currentChallenge.title;
-
-
-
-if(text)
-
-text.textContent =
-currentChallenge.description;
-
-
-
-
-
 refreshGallery();
-
 
 
 
