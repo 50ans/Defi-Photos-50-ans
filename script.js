@@ -1,5 +1,5 @@
 /* =====================================================
-   LES 50 ANS DE PAPA
+   LES 50 ANS DE CHRISTOPHE (dit "Parrain")
    Application photo collaborative
 ===================================================== */
 
