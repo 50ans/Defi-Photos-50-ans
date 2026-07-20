@@ -1032,7 +1032,7 @@ return;
 
 
 
-
+console.log("AFFICHAGE GALERIE :", data.length, "photos");
 
 data.forEach(photo=>{
 
