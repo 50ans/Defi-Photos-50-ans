@@ -883,6 +883,40 @@ y:0.6
 
 
 
+/* ==========================
+   COMPTEUR PHOTOS ACCUEIL
+========================== */
+
+async function updatePhotoCount(){
+
+    const {
+        count,
+        error
+    } = await window.supabaseClient
+    .from("photos")
+    .select("*", { count: "exact", head: true });
+
+
+    if(error){
+
+        console.error(error);
+        return;
+
+    }
+
+
+    const counter =
+    document.getElementById("photosTotal");
+
+
+    if(counter){
+
+        counter.textContent = count || 0;
+
+    }
+
+}
+
 
 /* ==========================
    GALERIE
