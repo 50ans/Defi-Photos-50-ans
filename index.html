@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Les 50 ans de Papa 🎉</title>
+
+<meta name="theme-color" content="#ff4d8d">
+<meta name="description" content="Album photo collaboratif des 50 ans">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background">
+
+    <div class="gradient-ball ball-one"></div>
+    <div class="gradient-ball ball-two"></div>
+    <div class="gradient-ball ball-three"></div>
+
+</div>
+
+
+
+<!-- APP -->
+
+<div id="app">
+
+
+
+<!-- =========================
+HOME
+========================= -->
+
+<section class="page active" id="home">
+
+
+<div class="hero">
+
+
+<div class="logo">
+
+    🎉
+
+</div>
+
+
+
+<h1>
+
+Les 50 ans<br>
+<span>de Papa</span>
+
+</h1>
+
+
+
+<p>
+
+Le grand album photo<br>
+collaboratif de la soirée
+
+</p>
+
+
+
+<div class="stats glass">
+
+
+<div>
+
+<strong id="photosTotal">
+0
+</strong>
+
+<span>
+Photos
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+30
+</strong>
+
+<span>
+Invités
+</span>
+
+</div>
+
+
+<div>
+
+<strong id="defisTotal">
+0
+</strong>
+
+<span>
+Défis
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<button class="main-button" id="start">
+
+Commencer la mission 🚀
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+CHALLENGE
+========================= -->
+
+<section class="page" id="challenge">
+
+
+<header>
+
+<button class="back">
+←
+</button>
+
+<h2>
+Défi photo
+</h2>
+
+</header>
+
+
+
+
+<div class="challenge-card glass">
+
+
+<div class="badge">
+
+🎯 Défi <span id="number">1</span>
+
+</div>
+
+
+
+<h1 id="challengeTitle">
+
+Le radeau de la Méduse
+
+</h1>
+
+
+
+<p id="challengeText">
+
+Reproduisez une œuvre célèbre avec les invités.
+
+</p>
+
+
+
+<div class="challenge-image">
+
+📸
+
+</div>
+
+
+
+<button class="main-button" id="photo">
+
+Prendre la photo
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+UPLOAD
+========================= -->
+
+
+<section class="page" id="upload">
+
+
+<header>
+
+<button class="back">
+←
+</button>
+
+<h2>
+Nouvelle photo
+</h2>
+
+</header>
+
+
+
+<div class="upload-box glass">
+
+
+<div class="preview">
+
+
+<img id="preview">
+
+
+<div id="empty">
+
+📷
+
+<br>
+
+Choisis une photo
+
+</div>
+
+
+</div>
+
+
+
+
+<label class="upload-btn">
+
+
+Choisir une photo
+
+<input 
+type="file"
+id="file"
+accept="image/*"
+capture="environment"
+hidden>
+
+
+</label>
+
+
+
+
+<input 
+id="name"
+placeholder="Ton prénom (optionnel)">
+
+
+
+
+
+<button 
+class="main-button"
+id="send">
+
+Envoyer ✨
+
+</button>
+
+
+
+<div class="progress">
+
+<div id="progressBar"></div>
+
+</div>
+
+
+
+<p id="message"></p>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+SUCCESS
+========================= -->
+
+<section class="page" id="success">
+
+
+<div class="success">
+
+
+<div class="heart">
+
+❤️
+
+</div>
+
+
+<h1>
+
+Merci !
+
+</h1>
+
+
+<p>
+
+La photo est ajoutée<br>
+à l'album des souvenirs.
+
+</p>
+
+
+
+<button class="main-button" id="again">
+
+Continuer
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+GALLERY
+========================= -->
+
+
+<section class="page" id="gallery">
+
+
+<header>
+
+<button class="back">
+←
+</button>
+
+
+<h2>
+Galerie
+</h2>
+
+
+</header>
+
+
+
+<div class="gallery-grid" id="galleryGrid">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+RANKING
+========================= -->
+
+<section class="page" id="ranking">
+
+
+<header>
+
+<button class="back">
+←
+</button>
+
+
+<h2>
+Classement
+</h2>
+
+
+</header>
+
+
+
+<div class="ranking glass">
+
+
+<h1>
+
+🏆
+
+</h1>
+
+
+<h2>
+Défis populaires
+</h2>
+
+
+
+<div id="rankingContent">
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+BOTTOM NAV
+========================= -->
+
+
+<nav class="navigation">
+
+
+<button data-page="home">
+
+🏠
+
+<span>
+Accueil
+</span>
+
+</button>
+
+
+
+<button data-page="gallery">
+
+📸
+
+<span>
+Galerie
+</span>
+
+</button>
+
+
+
+
+<button data-page="ranking">
+
+🏆
+
+<span>
+Classement
+</span>
+
+</button>
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+ADMIN
+========================= -->
+
+
+<section id="admin">
+
+
+<div class="admin-header">
+
+
+<h1>
+
+Administration 👑
+
+</h1>
+
+
+<button id="closeAdmin">
+
+×
+
+</button>
+
+
+</div>
+
+
+
+<div class="admin-stats">
+
+
+<div>
+
+<strong id="adminPhotos">
+0
+</strong>
+
+Photos
+
+</div>
+
+
+<div>
+
+<strong id="adminPeople">
+0
+</strong>
+
+Participants
+
+</div>
+
+
+<div>
+
+<strong id="adminChallenges">
+0
+</strong>
+
+Défis
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="admin-buttons">
+
+
+<button id="download">
+
+📥 Télécharger tout
+
+</button>
+
+
+<button id="reload">
+
+🔄 Actualiser
+
+</button>
+
+
+</div>
+
+
+
+<div id="adminGallery">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+PHOTO MODAL
+========================= -->
+
+
+<div id="modal">
+
+
+<div class="modal-content">
+
+
+<button id="closeModal">
+
+×
+
+</button>
+
+
+<img id="modalPhoto">
+
+
+<h3 id="modalTitle"></h3>
+
+
+<p id="modalAuthor"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- CONFETTIS -->
+
+
+<canvas id="confetti"></canvas>
+
+
+
+
+<!-- SCRIPTS -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="./config.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="./script.js"></script>
+
+
+
+</div>
+
+
+</body>
+
+</html>
