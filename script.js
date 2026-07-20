@@ -1129,7 +1129,12 @@ table:"photos"
 
 setTimeout(()=>{
 
+    setTimeout(()=>{
+
     refreshGallery();
+    updatePhotoCount();
+
+},1000);
 
 },500);
 
