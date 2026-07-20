@@ -783,15 +783,9 @@ input {
 
 .gallery-grid img {
 
-
     width:100%;
 
     border-radius:25px;
-
-    animation:
-
-    appear .5s;
-
 
 }
 
