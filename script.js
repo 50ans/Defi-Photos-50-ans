@@ -1241,8 +1241,10 @@ document
 ========================== */
 
 
-refreshGallery();
 updatePhotoCount();
+
+refreshGallery();
+
 
 console.log(
 "Application 50 ans chargée"
