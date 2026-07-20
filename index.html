@@ -1,185 +1,210 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🎉 Les 50 ans de Papa</title>
+<title>Les 50 ans de Papa 🎉</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#ff4d8d">
+<meta name="description" content="Album photo collaboratif des 50 ans">
 
 <link rel="manifest" href="manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
+
 
 
 <body>
 
 
-<div class="background"></div>
+<!-- BACKGROUND -->
+
+<div class="background">
+
+    <div class="gradient-ball ball-one"></div>
+    <div class="gradient-ball ball-two"></div>
+    <div class="gradient-ball ball-three"></div>
+
+</div>
 
 
-<header class="hero">
 
-    <div class="hero-content">
+<!-- APP -->
 
-        <h1>
-            🎉 Les 50 ans de Papa
-        </h1>
-
-        <p>
-            Le grand défi photo des souvenirs ❤️
-        </p>
+<div id="app">
 
 
-        <button id="scrollUpload" class="main-btn">
-            📸 Envoyer une photo
-        </button>
 
-    </div>
+<!-- =========================
+HOME
+========================= -->
+
+<section class="page active" id="home">
+
+
+<div class="hero">
+
+
+<div class="logo">
+
+    🎉
+
+</div>
+
+
+
+<h1>
+
+Les 50 ans<br>
+<span>de Papa</span>
+
+</h1>
+
+
+
+<p>
+
+Le grand album photo<br>
+collaboratif de la soirée
+
+</p>
+
+
+
+<div class="stats glass">
+
+
+<div>
+
+<strong id="photosTotal">
+0
+</strong>
+
+<span>
+Photos
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+30
+</strong>
+
+<span>
+Invités
+</span>
+
+</div>
+
+
+<div>
+
+<strong id="defisTotal">
+0
+</strong>
+
+<span>
+Défis
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<button class="main-button" id="start">
+
+Commencer la mission 🚀
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- =========================
+CHALLENGE
+========================= -->
+
+<section class="page" id="challenge">
+
+
+<header>
+
+<button class="back">
+←
+</button>
+
+<h2>
+Défi photo
+</h2>
 
 </header>
 
 
 
 
-
-<section class="section">
-
-
-<h2>🎯 Choisis ton défi</h2>
-
-<p class="subtitle">
-Choisis une mission, prends ta photo, et ajoute-la à l'album !
-</p>
+<div class="challenge-card glass">
 
 
+<div class="badge">
 
-<div class="challenge-container" id="challengeList">
+🎯 Défi <span id="number">1</span>
+
+</div>
 
 
 
-<div class="challenge-card selected"
-data-id="1"
-data-title="Le radeau de la Méduse"
-data-description="Reproduisez une œuvre célèbre avec les invités.">
+<h1 id="challengeTitle">
 
-<h3>🎯 Défi 1</h3>
-
-<h4>
 Le radeau de la Méduse
-</h4>
 
-<p>
+</h1>
+
+
+
+<p id="challengeText">
+
 Reproduisez une œuvre célèbre avec les invités.
+
 </p>
+
+
+
+<div class="challenge-image">
+
+📸
 
 </div>
 
 
 
-<div class="challenge-card"
-data-id="2"
-data-title="Tout le monde touche le sol"
-data-description="Une photo où absolument tout le monde touche le sol.">
+<button class="main-button" id="photo">
 
-<h3>🎯 Défi 2</h3>
+Prendre la photo
 
-<h4>
-Tout le monde touche le sol
-</h4>
-
-<p>
-Une photo où absolument tout le monde touche le sol.
-</p>
-
-</div>
-
-
-
-
-<div class="challenge-card"
-data-id="3"
-data-title="La photo impossible"
-data-description="Prenez une photo qui semble irréalisable.">
-
-<h3>🎯 Défi 3</h3>
-
-<h4>
-La photo impossible
-</h4>
-
-<p>
-Une scène drôle ou complètement improbable.
-</p>
-
-</div>
-
-
-
-
-<div class="challenge-card"
-data-id="4"
-data-title="Le musée vivant"
-data-description="Reproduisez une statue ou une peinture connue.">
-
-<h3>🎯 Défi 4</h3>
-
-<h4>
-Le musée vivant
-</h4>
-
-<p>
-Transformez les invités en œuvre d'art.
-</p>
-
-</div>
-
-
-
-<div class="challenge-card"
-data-id="5"
-data-title="Photo de famille originale"
-data-description="Inventez une photo de famille jamais vue.">
-
-<h3>🎯 Défi 5</h3>
-
-<h4>
-Photo de famille originale
-</h4>
-
-<p>
-Une pose que personne n'oubliera.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-
-
-<div class="selected-challenge">
-
-<h3>
-Défi choisi :
-</h3>
-
-<h2 id="currentChallenge">
-🎯 Le radeau de la Méduse
-</h2>
-
-
-<p id="currentDescription">
-Reproduisez une œuvre célèbre avec les invités.
-</p>
+</button>
 
 
 </div>
@@ -192,94 +217,194 @@ Reproduisez une œuvre célèbre avec les invités.
 
 
 
-<section class="upload-section" id="upload">
 
+
+<!-- =========================
+UPLOAD
+========================= -->
+
+
+<section class="page" id="upload">
+
+
+<header>
+
+<button class="back">
+←
+</button>
 
 <h2>
-📷 Envoie ta photo
+Nouvelle photo
 </h2>
 
+</header>
+
+
+
+<div class="upload-box glass">
+
+
+<div class="preview">
+
+
+<img id="preview">
+
+
+<div id="empty">
+
+📷
+
+<br>
+
+Choisis une photo
+
+</div>
+
+
+</div>
+
+
+
+
+<label class="upload-btn">
+
+
+Choisir une photo
 
 <input 
 type="file"
-id="photoInput"
+id="file"
 accept="image/*"
-hidden
->
+capture="environment"
+hidden>
 
-
-
-<label for="photoInput" class="upload-btn">
-
-Choisir une photo
 
 </label>
 
 
 
 
-<img 
-id="preview"
-class="preview"
->
-
-
-
-
 <input 
-id="username"
-placeholder="Ton prénom (facultatif)"
->
+id="name"
+placeholder="Ton prénom (optionnel)">
 
 
 
-<button id="sendPhoto" class="main-btn">
 
-🚀 Envoyer la photo
+
+<button 
+class="main-button"
+id="send">
+
+Envoyer ✨
 
 </button>
 
 
 
-<div id="thanks" class="thanks">
+<div class="progress">
 
-❤️ Merci !
-<br>
-La photo est ajoutée
-<br>
+<div id="progressBar"></div>
+
+</div>
+
+
+
+<p id="message"></p>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+SUCCESS
+========================= -->
+
+<section class="page" id="success">
+
+
+<div class="success">
+
+
+<div class="heart">
+
+❤️
+
+</div>
+
+
+<h1>
+
+Merci !
+
+</h1>
+
+
+<p>
+
+La photo est ajoutée<br>
 à l'album des souvenirs.
 
-</div>
-
-
-
-</section><!-- GALERIE PUBLIQUE -->
-
-<section class="gallery-section">
-
-<h2>
-📸 Galerie des souvenirs
-</h2>
-
-
-<p class="subtitle">
-Toutes les photos de la soirée apparaîtront ici ✨
 </p>
 
 
 
-<div id="gallery" class="gallery-grid">
+<button class="main-button" id="again">
 
+Continuer
 
-<!-- Les photos seront ajoutées automatiquement par script.js -->
+</button>
 
-
-<div class="empty-gallery">
-
-Aucune photo pour le moment...<br>
-Soyez les premiers à relever un défi ! 🎯
 
 </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+GALLERY
+========================= -->
+
+
+<section class="page" id="gallery">
+
+
+<header>
+
+<button class="back">
+←
+</button>
+
+
+<h2>
+Galerie
+</h2>
+
+
+</header>
+
+
+
+<div class="gallery-grid" id="galleryGrid">
 
 
 </div>
@@ -292,19 +417,55 @@ Soyez les premiers à relever un défi ! 🎯
 
 
 
-<!-- MESSAGE FINAL -->
 
-<section class="final-message">
+
+
+<!-- =========================
+RANKING
+========================= -->
+
+<section class="page" id="ranking">
+
+
+<header>
+
+<button class="back">
+←
+</button>
 
 
 <h2>
-❤️ Merci à tous !
+Classement
 </h2>
 
 
-<p>
-Grâce à vous, cette soirée restera gravée dans les souvenirs.
-</p>
+</header>
+
+
+
+<div class="ranking glass">
+
+
+<h1>
+
+🏆
+
+</h1>
+
+
+<h2>
+Défis populaires
+</h2>
+
+
+
+<div id="rankingContent">
+
+
+</div>
+
+
+</div>
 
 
 </section>
@@ -313,39 +474,235 @@ Grâce à vous, cette soirée restera gravée dans les souvenirs.
 
 
 
-<footer>
-
-<p>
-🎉 Les 50 ans de Papa • Album photo collaboratif
-</p>
-
-</footer>
 
 
 
 
+<!-- =========================
+BOTTOM NAV
+========================= -->
 
-<!-- SUPABASE -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<nav class="navigation">
 
 
-<!-- CONFIG -->
+<button data-page="home">
 
-<script src="./config.js"></script>
+🏠
+
+<span>
+Accueil
+</span>
+
+</button>
+
+
+
+<button data-page="gallery">
+
+📸
+
+<span>
+Galerie
+</span>
+
+</button>
+
+
+
+
+<button data-page="ranking">
+
+🏆
+
+<span>
+Classement
+</span>
+
+</button>
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+ADMIN
+========================= -->
+
+
+<section id="admin">
+
+
+<div class="admin-header">
+
+
+<h1>
+
+Administration 👑
+
+</h1>
+
+
+<button id="closeAdmin">
+
+×
+
+</button>
+
+
+</div>
+
+
+
+<div class="admin-stats">
+
+
+<div>
+
+<strong id="adminPhotos">
+0
+</strong>
+
+Photos
+
+</div>
+
+
+<div>
+
+<strong id="adminPeople">
+0
+</strong>
+
+Participants
+
+</div>
+
+
+<div>
+
+<strong id="adminChallenges">
+0
+</strong>
+
+Défis
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="admin-buttons">
+
+
+<button id="download">
+
+📥 Télécharger tout
+
+</button>
+
+
+<button id="reload">
+
+🔄 Actualiser
+
+</button>
+
+
+</div>
+
+
+
+<div id="adminGallery">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+PHOTO MODAL
+========================= -->
+
+
+<div id="modal">
+
+
+<div class="modal-content">
+
+
+<button id="closeModal">
+
+×
+
+</button>
+
+
+<img id="modalPhoto">
+
+
+<h3 id="modalTitle"></h3>
+
+
+<p id="modalAuthor"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+
 
 
 
 <!-- CONFETTIS -->
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<canvas id="confetti"></canvas>
 
 
 
-<!-- APPLICATION -->
 
-<script src="./script.js"></script>
+<!-- SCRIPTS -->
 
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
+
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+
+
+</div>
 
 
 </body>
