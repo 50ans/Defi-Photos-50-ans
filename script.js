@@ -73,13 +73,18 @@ document
 .forEach(button=>{
 
 
-    button.addEventListener("click",()=>{
+  button.addEventListener("click",()=>{
+
+    showPage(button.dataset.page);
 
 
-        showPage(button.dataset.page);
+    if(button.dataset.page === "gallery"){
 
+        refreshGallery();
 
-    });
+    }
+
+});
 
 
 });
@@ -926,16 +931,14 @@ async function updatePhotoCount(){
 
 async function refreshGallery(){
 
-    updatePhotoCount();
+    await updatePhotoCount();
 
     const grid =
     document.getElementById("galleryGrid");
 
+    if(!grid)
+    return;
 
-
-if(!grid)
-
-return;
 
 
 
@@ -1122,7 +1125,11 @@ table:"photos"
 ()=>{
 
 
-refreshGallery();
+setTimeout(()=>{
+
+    refreshGallery();
+
+},500);
 
 
 }
