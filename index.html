@@ -23,31 +23,22 @@
 </head>
 
 
-
 <body>
 
 
-<!-- BACKGROUND -->
-
 <div class="background">
 
-    <div class="gradient-ball ball-one"></div>
-    <div class="gradient-ball ball-two"></div>
-    <div class="gradient-ball ball-three"></div>
+<div class="gradient-ball ball-one"></div>
+<div class="gradient-ball ball-two"></div>
+<div class="gradient-ball ball-three"></div>
 
 </div>
 
 
 
-<!-- APP -->
-
 <div id="app">
 
 
-
-<!-- =========================
-HOME
-========================= -->
 
 <section class="page active" id="home">
 
@@ -57,7 +48,7 @@ HOME
 
 <div class="logo">
 
-    🎉
+🎉
 
 </div>
 
@@ -66,8 +57,10 @@ HOME
 <h1>
 
 Les 50 ans<br>
+
 <span>de Christophe</span>
-<span>(dit "Parrain")<span>
+
+<p>(dit "Parrain")</p>
 
 </h1>
 
@@ -76,7 +69,7 @@ Les 50 ans<br>
 <p>
 
 Le grand album photo<br>
-collaboratif de la soirée
+collaboratif de la journée
 
 </p>
 
@@ -98,6 +91,7 @@ Photos
 </div>
 
 
+
 <div>
 
 <strong>
@@ -109,6 +103,7 @@ Invités
 </span>
 
 </div>
+
 
 
 <div>
@@ -128,11 +123,13 @@ Défis
 
 
 
+
 <button class="main-button" id="start">
 
-Commencer la mission 🚀
+Envoyer une photo 📸
 
 </button>
+
 
 
 </div>
@@ -144,9 +141,7 @@ Commencer la mission 🚀
 
 
 
-<!-- =========================
-CHALLENGE
-========================= -->
+
 
 <section class="page" id="challenge">
 
@@ -157,70 +152,191 @@ CHALLENGE
 ←
 </button>
 
+
 <h2>
-Défi photo
+Choisir un défi
 </h2>
+
 
 </header>
 
 
 
 
-<div class="challenge-card glass">
+
+<div class="challenge-selector">
+
+
+
+<div 
+class="challenge-card glass selected"
+
+data-id="1"
+
+data-title="Le radeau de la Méduse"
+
+data-description="Reproduisez une œuvre célèbre avec les invités."
+>
 
 
 <div class="badge">
 
-🎯 Défi <span id="number">1</span>
+🎯 Défi 1
 
 </div>
 
 
-
-<h1 id="challengeTitle">
+<h1>
 
 Le radeau de la Méduse
 
 </h1>
 
 
-
-<p id="challengeText">
+<p>
 
 Reproduisez une œuvre célèbre avec les invités.
 
 </p>
 
 
+</div>
 
-<div class="challenge-image">
 
-📸
+
+
+
+
+<div 
+class="challenge-card glass"
+
+data-id="2"
+
+data-title="La Joconde"
+
+data-description="Reproduisez le célèbre sourire de Mona Lisa."
+>
+
+
+<div class="badge">
+
+🎯 Défi 2
 
 </div>
+
+
+<h1>
+
+La Joconde
+
+</h1>
+
+
+<p>
+
+Reproduisez le célèbre tableau.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div 
+class="challenge-card glass"
+
+data-id="3"
+
+data-title="Titanic"
+
+data-description="Reproduisez la scène mythique du bateau."
+>
+
+
+<div class="badge">
+
+🎯 Défi 3
+
+</div>
+
+
+<h1>
+
+Titanic
+
+</h1>
+
+
+<p>
+
+La scène culte avec les invités.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div 
+class="challenge-card glass"
+
+data-id="4"
+
+data-title="Tout le monde touche le sol"
+
+data-description="Toute la famille doit toucher le sol en même temps."
+>
+
+
+<div class="badge">
+
+🎯 Défi 4
+
+</div>
+
+
+<h1>
+
+Tout le monde touche le sol
+
+</h1>
+
+
+<p>
+
+Une photo complètement absurde.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
 
 
 
 <button class="main-button" id="photo">
 
-Prendre la photo
+Prendre la photo 📸
 
 </button>
 
 
-</div>
 
-
-
-</section>
-
-
-
-
-
-
-
-<!-- =========================
+</section><!-- =========================
 UPLOAD
 ========================= -->
 
@@ -239,6 +355,7 @@ Nouvelle photo
 </h2>
 
 </header>
+
 
 
 
@@ -303,6 +420,7 @@ Envoyer ✨
 
 
 
+
 <div class="progress">
 
 <div id="progressBar"></div>
@@ -328,9 +446,11 @@ Envoyer ✨
 
 
 
+
 <!-- =========================
 SUCCESS
 ========================= -->
+
 
 <section class="page" id="success">
 
@@ -345,6 +465,7 @@ SUCCESS
 </div>
 
 
+
 <h1>
 
 Merci !
@@ -352,12 +473,15 @@ Merci !
 </h1>
 
 
+
 <p>
 
 La photo est ajoutée<br>
+
 à l'album des souvenirs.
 
 </p>
+
 
 
 
@@ -368,7 +492,9 @@ Continuer
 </button>
 
 
+
 </div>
+
 
 
 </section>
@@ -391,17 +517,24 @@ GALLERY
 
 <header>
 
+
 <button class="back">
+
 ←
+
 </button>
 
 
+
 <h2>
+
 Galerie
+
 </h2>
 
 
 </header>
+
 
 
 
@@ -421,61 +554,6 @@ Galerie
 
 
 
-<!-- =========================
-RANKING
-========================= -->
-
-<section class="page" id="ranking">
-
-
-<header>
-
-<button class="back">
-←
-</button>
-
-
-<h2>
-Classement
-</h2>
-
-
-</header>
-
-
-
-<div class="ranking glass">
-
-
-<h1>
-
-🏆
-
-</h1>
-
-
-<h2>
-Défis populaires
-</h2>
-
-
-
-<div id="rankingContent">
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
 
 
 
@@ -487,44 +565,47 @@ BOTTOM NAV
 <nav class="navigation">
 
 
+
 <button data-page="home">
+
 
 🏠
 
+
 <span>
+
 Accueil
+
 </span>
 
+
 </button>
+
+
 
 
 
 <button data-page="gallery">
 
+
 📸
 
+
 <span>
+
 Galerie
+
 </span>
 
-</button>
-
-
-
-
-<button data-page="ranking">
-
-🏆
-
-<span>
-Classement
-</span>
 
 </button>
 
 
 
 </nav>
+
+
+
 
 
 
@@ -552,6 +633,8 @@ Administration 👑
 </h1>
 
 
+
+
 <button id="closeAdmin">
 
 ×
@@ -559,7 +642,11 @@ Administration 👑
 </button>
 
 
+
 </div>
+
+
+
 
 
 
@@ -568,38 +655,63 @@ Administration 👑
 
 <div>
 
+
 <strong id="adminPhotos">
+
 0
+
 </strong>
+
 
 Photos
 
+
 </div>
+
+
 
 
 <div>
 
+
 <strong id="adminPeople">
+
 0
+
 </strong>
+
 
 Participants
 
+
 </div>
+
+
 
 
 <div>
 
+
 <strong id="adminChallenges">
+
 0
+
 </strong>
+
 
 Défis
 
+
 </div>
 
 
+
+
 </div>
+
+
+
+
 
 
 
@@ -615,6 +727,7 @@ Défis
 </button>
 
 
+
 <button id="reload">
 
 🔄 Actualiser
@@ -622,7 +735,10 @@ Défis
 </button>
 
 
+
 </div>
+
+
 
 
 
@@ -661,19 +777,26 @@ PHOTO MODAL
 </button>
 
 
+
+
 <img id="modalPhoto">
+
+
 
 
 <h3 id="modalTitle"></h3>
 
 
+
 <p id="modalAuthor"></p>
 
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -684,7 +807,11 @@ PHOTO MODAL
 <!-- CONFETTIS -->
 
 
-<canvas id="confetti"></canvas>
+<canvas id="confettiCanvas"></canvas>
+
+
+
+
 
 
 
@@ -694,16 +821,22 @@ PHOTO MODAL
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti/dist/confetti.browser.min.js"></script>
 
 
+
 <script src="config.js"></script>
+
 
 <script src="script.js"></script>
 
 
 
+
+
 </div>
+
 
 
 </body>
