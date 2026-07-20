@@ -1193,23 +1193,11 @@ document
 
 // Actualisation automatique de la galerie toutes les 5 secondes
 
-setInterval(()=>{
-
-    const gallery =
-    document.getElementById("gallery");
 
 
-    if(
-        gallery &&
-        gallery.classList.contains("active")
-    ){
+refreshGallery()
 
-        refreshGallery();
-
-    }
-
-
-},5000);
+ 
 
 
 
