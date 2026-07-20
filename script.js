@@ -748,10 +748,6 @@ filename:
 filename,
 
 
-storage_path:
-filename,
-
-
 challenge:
 currentChallenge.title,
 
@@ -759,9 +755,10 @@ currentChallenge.title,
 author:
 author
 
-
-
 });
+
+
+console.log("INSERT PHOTO :", insert);
 
 
 
