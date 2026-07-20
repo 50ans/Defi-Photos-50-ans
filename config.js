@@ -9,15 +9,10 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 window.supabaseClient = supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_KEY,
-    {
-        auth: {
-            persistSession: false,
-            autoRefreshToken: false
-        }
-    }
+    SUPABASE_KEY
 );
 
 
 console.log("✅ Supabase connecté");
-console.log("Client Supabase :", window.supabaseClient);
+console.log("Clé utilisée :", SUPABASE_KEY.substring(0, 20));
+console.log("Client :", window.supabaseClient);
