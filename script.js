@@ -732,30 +732,31 @@ document.getElementById("name")?.value
 
 
 
+console.log("AVANT INSERT", {
+    url: publicUrl,
+    filename,
+    challenge: currentChallenge.title,
+    author
+});
+
+
 const insert =
-
 await window.supabaseClient
-
 .from("photos")
-
 .insert({
 
-url:
-publicUrl,
+url: publicUrl,
 
+filename: filename,
 
-filename:
-filename,
+challenge: currentChallenge.title,
 
-
-challenge:
-currentChallenge.title,
-
-
-author:
-author
+author: author
 
 });
+
+
+console.log("RESULTAT INSERT", insert);
 
 
 console.log("INSERT PHOTO :", insert);
