@@ -1240,10 +1240,9 @@ document
    INITIALISATION
 ========================== */
 
- 
 
-
-
+refreshGallery();
+updatePhotoCount();
 
 console.log(
 "Application 50 ans chargée"
