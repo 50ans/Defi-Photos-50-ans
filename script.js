@@ -906,6 +906,8 @@ async function updatePhotoCount(){
 
         console.error(error);
         return;
+       
+       console.log("PHOTOS RÉCUPÉRÉES :", data);
 
     }
 
