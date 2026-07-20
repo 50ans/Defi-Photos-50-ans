@@ -1191,13 +1191,29 @@ document
    INITIALISATION
 ========================== */
 
+// Actualisation automatique de la galerie toutes les 5 secondes
+
+setInterval(()=>{
+
+    const gallery =
+    document.getElementById("gallery");
 
 
-refreshGallery();
+    if(
+        gallery &&
+        gallery.classList.contains("active")
+    ){
+
+        refreshGallery();
+
+    }
+
+
+},5000);
 
 
 
 
 console.log(
-"🎉 VERSION NOUVELLE DU SCRIPT CHARGÉE !"
+"Application 50 ans chargée"
 );
