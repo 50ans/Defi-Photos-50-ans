@@ -923,14 +923,13 @@ async function updatePhotoCount(){
 ========================== */
 
 
+
 async function refreshGallery(){
 
-console.log("🔄 refreshGallery appelée", new Date());
+    updatePhotoCount();
 
-
-
-const grid =
-document.getElementById("galleryGrid");
+    const grid =
+    document.getElementById("galleryGrid");
 
 
 
