@@ -13,13 +13,20 @@ const pages = document.querySelectorAll(".page");
 
 
 let currentChallenge = {
+
     title: "Le radeau de la Méduse",
-    description: "Reproduisez une œuvre célèbre avec les invités.",
+
+    description:
+    "Reproduisez une œuvre célèbre avec les invités.",
+
     id: 1
+
 };
 
 
 let selectedFile = null;
+
+
 
 
 
@@ -38,12 +45,18 @@ function showPage(id){
     });
 
 
-    document
-    .getElementById(id)
-    .classList.add("active");
+
+    const target =
+    document.getElementById(id);
+
+
+
+    if(target)
+    target.classList.add("active");
 
 
 }
+
 
 
 
@@ -67,13 +80,20 @@ document
 
 
 
-document
-.getElementById("start")
-.onclick=()=>{
+const start =
+document.getElementById("start");
+
+
+if(start){
+
+start.onclick=()=>{
 
     showPage("challenge");
 
 };
+
+}
+
 
 
 
@@ -99,9 +119,14 @@ document
 
 
 
-document
-.getElementById("photo")
-.onclick=()=>{
+const photoButton =
+document.getElementById("photo");
+
+
+if(photoButton){
+
+
+photoButton.onclick=()=>{
 
 
     showPage("upload");
@@ -110,18 +135,111 @@ document
 };
 
 
+}
 
 
 
-document
-.getElementById("again")
-.onclick=()=>{
+
+
+
+const again =
+document.getElementById("again");
+
+
+if(again){
+
+
+again.onclick=()=>{
 
 
     showPage("challenge");
 
 
 };
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+   CHOIX DES DEFIS
+========================== */
+
+
+document
+.querySelectorAll(".challenge-card")
+.forEach(card=>{
+
+
+    card.addEventListener("click",()=>{
+
+
+        document
+        .querySelectorAll(".challenge-card")
+        .forEach(c=>{
+
+            c.classList.remove("selected");
+
+        });
+
+
+
+        card.classList.add("selected");
+
+
+
+        currentChallenge = {
+
+
+            id:
+            card.dataset.id,
+
+
+            title:
+            card.dataset.title,
+
+
+            description:
+            card.dataset.description
+
+
+        };
+
+
+
+
+
+        const title =
+        document.getElementById("challengeTitle");
+
+
+        const text =
+        document.getElementById("challengeText");
+
+
+
+        if(title)
+        title.textContent =
+        currentChallenge.title;
+
+
+
+        if(text)
+        text.textContent =
+        currentChallenge.description;
+
+
+
+    });
+
+
+});
+
 
 
 
@@ -143,6 +261,7 @@ function loadChallenge(){
     );
 
 
+
     const defi =
     params.get("defi");
 
@@ -155,9 +274,14 @@ function loadChallenge(){
         decodeURIComponent(defi);
 
 
-        document
-        .getElementById("challengeTitle")
-        .textContent =
+
+        const title =
+        document.getElementById("challengeTitle");
+
+
+
+        if(title)
+        title.textContent =
         currentChallenge.title;
 
 
@@ -176,23 +300,31 @@ loadChallenge();
 
 
 
+
 /* ==========================
    PHOTO PREVIEW
 ========================== */
+
 
 
 const input =
 document.getElementById("file");
 
 
+
 const preview =
 document.getElementById("preview");
+
 
 
 const empty =
 document.getElementById("empty");
 
 
+
+
+
+if(input){
 
 
 input.addEventListener(
@@ -221,16 +353,23 @@ input.addEventListener(
     reader.onload=function(e){
 
 
-        preview.src=e.target.result;
+
+        preview.src =
+        e.target.result;
 
 
-        preview.style.display="block";
+
+        preview.style.display =
+        "block";
 
 
-        empty.style.display="none";
+
+        if(empty)
+        empty.style.display =
+        "none";
 
 
-    }
+    };
 
 
 
@@ -239,6 +378,11 @@ input.addEventListener(
 
 
 });
+
+
+}
+
+
 
 
 
@@ -251,46 +395,64 @@ input.addEventListener(
 ========================== */
 
 
+
 async function compressImage(file){
 
 
 return new Promise(resolve=>{
 
 
-const img=new Image();
+const img =
+new Image();
 
 
-const canvas=document.createElement("canvas");
+
+const canvas =
+document.createElement("canvas");
+
 
 
 img.onload=()=>{
 
 
-let width=img.width;
-
-let height=img.height;
-
-
-const max=1600;
+let width =
+img.width;
 
 
+let height =
+img.height;
 
-if(width>max){
+
+
+const max =
+1600;
+
+
+
+if(width > max){
 
 
 height =
-height*(max/width);
+height * (max / width);
 
-width=max;
+
+width =
+max;
 
 
 }
 
 
 
-canvas.width=width;
 
-canvas.height=height;
+canvas.width =
+width;
+
+
+canvas.height =
+height;
+
+
 
 
 
@@ -300,12 +462,20 @@ canvas.getContext("2d");
 
 
 ctx.drawImage(
+
 img,
+
 0,
+
 0,
+
 width,
+
 height
+
 );
+
+
 
 
 
@@ -315,9 +485,14 @@ canvas.toBlob(blob=>{
 resolve(blob);
 
 
+
 },
+
 "image/jpeg",
-0.85);
+
+0.85
+
+);
 
 
 
@@ -325,29 +500,29 @@ resolve(blob);
 
 
 
-img.src=
+
+img.src =
 URL.createObjectURL(file);
 
 
 
 });
 
-}
 
-
-
-
-
-
-
-/* ==========================
+}/* ==========================
    ENVOI PHOTO
 ========================== */
 
 
-document
-.getElementById("send")
-.onclick=
+const sendButton =
+document.getElementById("send");
+
+
+
+if(sendButton){
+
+
+sendButton.onclick =
 async()=>{
 
 
@@ -366,101 +541,151 @@ return;
 
 
 
-const button =
-document.getElementById("send");
-
-
-const message =
-document.getElementById("message");
-
-
-
-button.textContent=
+sendButton.textContent =
 "Envoi... 🚀";
 
 
 
-const compressed =
-await compressImage(selectedFile);
-
-
-
-try {
+try{
 
 
 const filename =
+
 Date.now()
+
 +
+
 "-"
+
 +
+
 selectedFile.name
+
 .trim()
-.replace(/\s+/g, "-")
-.replace(/[^a-zA-Z0-9.-]/g, "");
+
+.replace(/\s+/g,"-")
+
+.replace(/[^a-zA-Z0-9.-]/g,"");
 
 
 
-// compression
+
 
 const compressed =
+
 await compressImage(selectedFile);
 
 
 
-// Upload Storage
+
+
+
+// UPLOAD STORAGE
+
 
 const upload =
-await supabaseClient
+
+await window.supabaseClient
+
 .storage
+
 .from("photos")
+
 .upload(
+
 filename,
+
 compressed,
+
 {
+
 contentType:"image/jpeg"
+
 }
+
 );
 
 
 
+
+
 if(upload.error)
+
 throw upload.error;
 
 
 
 
-// récupérer URL publique
+
+
+// URL PUBLIQUE
+
 
 const publicUrl =
-supabaseClient
+
+window.supabaseClient
+
 .storage
+
 .from("photos")
+
 .getPublicUrl(filename)
+
 .data
+
 .publicUrl;
 
 
 
 
 
-// enregistrer dans la table
+
+
+// INSERT DATABASE
+
 
 const insert =
-await supabaseClient
+
+await window.supabaseClient
+
 .from("photos")
+
 .insert({
 
-url: publicUrl,
 
-filename: filename,
 
-storage_path: filename,
+url:
+
+publicUrl,
+
+
+
+filename:
+
+filename,
+
+
+
+storage_path:
+
+filename,
+
+
 
 challenge:
+
 currentChallenge.title,
 
+
+
 author:
-document.getElementById("name").value || "Anonyme"
+
+document.getElementById("name")?.value
+
+||
+
+"Anonyme"
+
 
 
 });
@@ -468,8 +693,15 @@ document.getElementById("name").value || "Anonyme"
 
 
 
+
+
 if(insert.error)
+
 throw insert.error;
+
+
+
+
 
 
 
@@ -478,16 +710,25 @@ launchConfetti();
 
 
 
+
+
 showPage("success");
 
 
 
-button.textContent =
+sendButton.textContent =
 "Envoyé 🎉";
 
 
 
+await refreshGallery();
+
+
+
+
+
 }
+
 catch(error){
 
 
@@ -499,7 +740,8 @@ alert(
 );
 
 
-button.textContent =
+
+sendButton.textContent =
 "Envoyer ✨";
 
 
@@ -508,6 +750,10 @@ button.textContent =
 
 
 };
+
+
+}
+
 
 
 
@@ -525,26 +771,37 @@ function launchConfetti(){
 
 
 
-if(typeof confetti==="undefined")
+if(typeof confetti !== "function")
 return;
 
 
 
 confetti({
 
+
 particleCount:150,
+
 
 spread:120,
 
+
 origin:{
+
+
 y:.6
+
+
 }
+
+
 
 });
 
 
-
 }
+
+
+
 
 
 
@@ -557,120 +814,156 @@ y:.6
 ========================== */
 
 
-let galleryPhotos=[];
 
+async function refreshGallery(){
 
-
-function refreshGallery(){
 
 
 const grid =
 document.getElementById("galleryGrid");
 
 
+
+if(!grid)
+return;
+
+
+
+
+
+const {
+
+data,
+
+error
+
+} =
+
+await window.supabaseClient
+
+.from("photos")
+
+.select("*")
+
+.order(
+
+"created_at",
+
+{
+
+ascending:false
+
+}
+
+);
+
+
+
+
+
+
+
+if(error){
+
+
+console.error(error);
+
+
+return;
+
+
+}
+
+
+
+
+
+
 grid.innerHTML="";
 
 
 
-galleryPhotos.forEach(photo=>{
-
-
-const img =
-document.createElement("img");
-
-
-img.src=photo.url;
-
-
-grid.appendChild(img);
-
-
-});
 
 
 
-}
+if(!data || data.length===0){
 
 
+grid.innerHTML=`
 
-refreshGallery();
+<div class="empty-gallery">
 
-
-
-
-
-
-
-
-/* ==========================
-   CLASSEMENT
-========================== */
-
-
-const rankingData=[
-
-{
-name:"Titanic",
-score:0
-},
-
-{
-name:"Le radeau de la Méduse",
-score:0
-},
-
-{
-name:"La Joconde",
-score:0
-}
-
-
-];
-
-
-
-function updateRanking(){
-
-
-const box =
-document.getElementById("rankingContent");
-
-
-box.innerHTML="";
-
-
-
-rankingData
-.sort((a,b)=>b.score-a.score)
-.forEach((item,index)=>{
-
-
-box.innerHTML += `
-
-<div class="rank">
-
-${index+1} 🏆
-
-<strong>${item.name}</strong>
-
-<span>
-${item.score} photos
-</span>
-
+Aucune photo pour le moment 📸
 
 </div>
 
 `;
 
-
-});
+return;
 
 
 }
 
 
 
-updateRanking();
+
+
+
+
+data.forEach(photo=>{
+
+
+
+grid.innerHTML += `
+
+
+<div class="photo-card">
+
+
+<img src="${photo.url}">
+
+
+
+<div class="photo-info">
+
+
+<h3>
+
+🎯 ${photo.challenge || "Défi"}
+
+</h3>
+
+
+
+<p>
+
+👤 ${photo.author || "Anonyme"}
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+
+
+}
+
+
+
 
 
 
@@ -679,27 +972,95 @@ updateRanking();
 
 
 /* ==========================
-   ADMIN RACCOURCI
+   GALERIE TEMPS REEL
 ========================== */
 
 
-// ouvrir avec CTRL + SHIFT + A
+if(window.supabaseClient){
+
+
+window.supabaseClient
+
+
+.channel("photos-live")
+
+
+.on(
+
+"postgres_changes",
+
+{
+
+
+event:"INSERT",
+
+
+schema:"public",
+
+
+table:"photos"
+
+
+},
+
+
+()=>{
+
+
+refreshGallery();
+
+
+}
+
+
+)
+
+
+.subscribe();
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   ADMIN
+========================== */
+
+
 
 document.addEventListener(
+
 "keydown",
+
 (e)=>{
 
 
 if(
+
 e.ctrlKey &&
+
 e.shiftKey &&
+
 e.key==="A"
+
 ){
 
 
-document
-.getElementById("admin")
-.style.display="block";
+
+const admin =
+document.getElementById("admin");
+
+
+
+if(admin)
+
+admin.style.display="block";
 
 
 }
@@ -710,40 +1071,74 @@ document
 
 
 
-document
-.getElementById("closeAdmin")
-.onclick=()=>{
+
+
+const closeAdmin =
+document.getElementById("closeAdmin");
+
+
+
+if(closeAdmin){
+
+
+closeAdmin.onclick=()=>{
 
 
 document
+
 .getElementById("admin")
+
 .style.display="none";
 
 
 };
 
 
+}
+
+
+
+
 
 
 
 
 
 /* ==========================
-   INIT
+   INITIALISATION
 ========================== */
 
 
-document
-.getElementById("challengeTitle")
-.textContent =
+
+const title =
+document.getElementById("challengeTitle");
+
+
+
+const text =
+document.getElementById("challengeText");
+
+
+
+if(title)
+
+title.textContent =
 currentChallenge.title;
 
 
 
-document
-.getElementById("challengeText")
-.textContent =
+if(text)
+
+text.textContent =
 currentChallenge.description;
+
+
+
+
+
+refreshGallery();
+
+
 
 
 
