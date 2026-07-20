@@ -1198,5 +1198,5 @@ refreshGallery();
 
 
 console.log(
-"🎉 Application 50 ans chargée !"
+"🎉 VERSION NOUVELLE DU SCRIPT CHARGÉE !"
 );
