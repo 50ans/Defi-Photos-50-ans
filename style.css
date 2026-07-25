@@ -279,7 +279,7 @@ body {
 .hero {
 
     margin:auto;
-
+    margin-top:-25px;   /* remonte légèrement tout le contenu */
     text-align:center;
 
 }
