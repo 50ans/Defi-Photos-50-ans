@@ -931,5 +931,17 @@ input {
 font-size:40px;
 
 }
+.signature{
 
+    margin-top:12px;
+
+    font-size:10px;
+
+    opacity:.45;
+
+    text-align:center;
+
+    letter-spacing:.5px;
+
+}
 }
